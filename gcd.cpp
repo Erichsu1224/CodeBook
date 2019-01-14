@@ -5,3 +5,5 @@ int gcd(int a, int b)
 
 	return a;
 }
+
+//use the standard library
