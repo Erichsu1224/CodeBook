@@ -1,6 +1,4 @@
 //dijkstra
-//最短路徑
-
 #include <iostream>
 #include <cstdio>
 #include <queue>
@@ -41,11 +39,12 @@ struct Item
 int main(void)
 {
     int n, m;
-    while(scanf("%d %d", &n, &m))
+    while(~scanf("%d %d", &n, &m))
     {
     	vector <Edge> edges;
     	vector<int> G[maxn]; 
         priority_queue <Item> dij;
+        int visit[maxn] = {-1};
  
         for(int i = 0; i < m; i++)
         {
@@ -62,6 +61,12 @@ int main(void)
         {
             hold = dij.top(); 
             dij.pop();
+
+            if(visit[hold.node] == 1)
+                continue;
+
+            visit[hold.node] = 1;
+
             node = hold.node;
             if(node == n)
             {
