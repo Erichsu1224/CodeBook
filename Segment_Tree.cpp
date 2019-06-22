@@ -1,3 +1,8 @@
+#define SIZE 100000
+
+int st[SIZE];
+int st_val[SIZE];
+
 void st_build(int *st, int *st_val, int now, int ls, int rs)
 {
 	if(ls == rs)
