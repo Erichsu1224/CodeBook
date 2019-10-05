@@ -1,14 +1,10 @@
 //kruskal algorithm
 //minimum spanning tree
 
-#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <algorithm>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 
-#define maxn 10100
+#define maxn 
 
 struct Edge
 {
@@ -27,9 +23,8 @@ struct Edge
 	}
 };
 
-int graph[maxn];
 int parent_arr[maxn];
-int n, m;
+int n, m, cost;
 vector<Edge> edges;
 
 int find(int x)
@@ -37,13 +32,13 @@ int find(int x)
 	return parent_arr[x] < 0 ? x : (parent_arr[x] = find(parent_arr[x]));
 }
 
-void kruskal_algorithm(int vertex, int edge)
+void kruskal_algorithm(void)
 {
-	int cost = 0;
+	cost = 0;
 	memset(parent_arr, -1, sizeof(parent_arr));
 	sort(edges.begin(), edges.end());
 
-	for(int i = 0; i < edge; i++)
+	for(int i = 0; i < m; i++)
 	{
 		Edge tmp = edges[i];
 
@@ -77,18 +72,22 @@ void kruskal_algorithm(int vertex, int edge)
 
 int main(void)
 {
-	while(scanf("%d %d", &n, &m))
+	while(cin >> n >> m)
 	{
+		//init
+		edges.clear();
+		cost = 0;
+
 		for(int i = 0; i < m; i++)
 		{
 			int a, b, c;
-			scanf("%d %d %d", &a, &b, &c);
+			cin >> a >> b >> c;
 			edges.push_back(Edge(a, b, c));
-
-			kruskal_algorithm();
-
-			edges.clear();	
 		}
+
+		kruskal_algorithm();
+
+		cout << cost << '\n';
 	}
 	return 0;
 }
