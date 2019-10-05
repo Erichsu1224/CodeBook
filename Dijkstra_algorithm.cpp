@@ -1,8 +1,5 @@
 //dijkstra
-#include <iostream>
-#include <cstdio>
-#include <queue>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
  
 #define maxn 51415
@@ -35,16 +32,26 @@ struct Item
         return dist > rs.dist;
     }
 };
+
+int n, m;
+vector <Edge> edges;
+vector<int> G[maxn]; 
+bool visit[maxn];
+int start, node;
  
 int main(void)
 {
-    int n, m;
-    while(~scanf("%d %d", &n, &m))
+    while(cin >> n >> m)
     {
-    	vector <Edge> edges;
-    	vector<int> G[maxn]; 
+    	//init
         priority_queue <Item> dij;
-        int visit[maxn] = {-1};
+        edges.clear();
+        for(int i = 0; i <= n; i++)
+        {
+            G[i].clear();
+        }
+        memset(visit, false, sizeof(visit));
+
  
         for(int i = 0; i < m; i++)
         {
@@ -54,18 +61,22 @@ int main(void)
             G[a].push_back(i);
         }
 
-        int node = 1;
-        dij.push(Item(1, 0));
+        // start vertex
+        start = 1;
+        node = 0;
+        
+        dij.push(Item(start, 0));
         Item hold = Item(0, 0);
         while(!dij.empty())
         {
             hold = dij.top(); 
             dij.pop();
+            cout << hold.node << ' ' << hold.dist << endl;
 
-            if(visit[hold.node] == 1)
+            if(visit[hold.node] == true)
                 continue;
 
-            visit[hold.node] = 1;
+            visit[hold.node] = true;
 
             node = hold.node;
             if(node == n)
