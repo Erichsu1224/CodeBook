@@ -32,6 +32,11 @@ int find(int x)
 	return parent_arr[x] < 0 ? x : (parent_arr[x] = find(parent_arr[x]));
 }
 
+void conn(int x,int y)
+{
+    parent_arr[find(y)]=find(x);
+}
+
 void kruskal_algorithm(void)
 {
 	cost = 0;
@@ -42,7 +47,7 @@ void kruskal_algorithm(void)
 	{
 		Edge tmp = edges[i];
 
-		if(find(tmp.to) == find(tmp.from) && parent_arr[tmp.to] != -1)
+		if(find(tmp.to) == find(tmp.from))
 		{
 			//不能形成環的邊
 			continue;
@@ -50,22 +55,9 @@ void kruskal_algorithm(void)
 
 		else
 		{
-			if(parent_arr[tmp.to] == -1)
-			{
-				parent_arr[find(tmp.from)] += -1;
-				parent_arr[tmp.to] = tmp.from;
-			}
-
-			else if(parent_arr[tmp.from] == -1)
-			{
-				parent_arr[find(tmp.from)] -= 1;
-				parent_arr[tmp.from] = tmp.to;
-			}
-			else
-			{
-				parent_arr[find(tmp.to)] += parent_arr[find(tmp.from)];
-				parent_arr[find(tmp.from)] = find(tmp.to);
-			}
+			cost += tmp.cost;
+			conn(tmp.from, tmp.to);
+			
 		}
 	}
 }
