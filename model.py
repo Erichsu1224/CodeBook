@@ -29,7 +29,7 @@ arr = [0 for i in range(10)]
 
 
 ###numpy
-import numpy as numpy
+import numpy as np
 
 arr = np.zeros(shpape = (10, 20))
 arr_2 = np.ones(shpape = (20))
