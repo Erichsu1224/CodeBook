@@ -26,7 +26,8 @@ num1, num2 = input.split()
 
 ###初始化list
 arr = [0 for i in range(10)]
-
+###陣列元素轉型
+arr = [int(x) for i in arr]
 
 ###numpy
 import numpy as np
