@@ -3,6 +3,7 @@ using namespace std;
 
 #define ARII array<array<int, 10>, 10>
 
+
 int main(void)
 {
 	ARII puz;
@@ -57,7 +58,10 @@ int main(void)
 								tmp[i+3][j] = tmp[i][j];
 								tmp[i][j] = 0;
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}	
 							}
 
 							if(i-1 >= 1 && now[i-1][j] == 0)
@@ -66,7 +70,10 @@ int main(void)
 								tmp[i-1][j] = tmp[i][j];
 								tmp[i+2][j] = 0;
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}
 							}
 						}
 
@@ -78,7 +85,10 @@ int main(void)
 								tmp[i+2][j] = tmp[i][j];
 								tmp[i][j] = 0;
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}
 							}
 
 							if(i-1 >= 1 && now[i-1][j] == 0)
@@ -87,7 +97,10 @@ int main(void)
 								tmp[i-1][j] = tmp[i][j];
 								tmp[i+1][j] = 0;
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}
 							}
 						}
 					}
@@ -106,7 +119,10 @@ int main(void)
 								tmp[i][j] = 0;
 
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}
 							}
 
 
@@ -116,7 +132,10 @@ int main(void)
 								tmp[i][j-1] = tmp[i][j];
 								tmp[i][j+2] = 0;
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}
 							}
 						}
 
@@ -129,7 +148,10 @@ int main(void)
 								tmp[i][j] = 0;
 
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}
 							}
 
 
@@ -139,7 +161,10 @@ int main(void)
 								tmp[i][j-1] = tmp[i][j];
 								tmp[i][j+1] = 0;
 								if(!his.count(tmp))
+								{
+									his.emplace(tmp);
 									q.push(make_pair(tmp, step+1));
+								}
 							}
 						}
 					}
