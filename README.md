@@ -1,6 +1,7 @@
 # Return0
 
 A team for Programming competition from FJCU
+by EricHsu, CashLu, ICEJJLiang
 
 | Contest  | Date | Award | Ranking  | solved | Penalty| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O |
 | -------- | :--: | :---: | :------: | :----: | :----: |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
