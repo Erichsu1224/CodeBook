@@ -1,4 +1,4 @@
-# CodeForce#612 2019/11/29
+# CodeForce #603-div2 2019/11/29
 
 ## A
 原本用 priority_queue 做 TLE，沒想到是結論題ans = min((a+b+c)/2, min(a+b, min(b+c, a+c)))
