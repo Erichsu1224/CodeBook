@@ -5,7 +5,7 @@ using namespace std;
 
 int BIT[maxn+5];
 int node[maxn+5] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 9}; 
-int n = 12;	//number of node
+int n = 12;	//# of node
 
 int getsum(int ind) 
 { 
