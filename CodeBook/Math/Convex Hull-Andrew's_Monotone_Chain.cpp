@@ -54,9 +54,24 @@ double cac_area(int m){ //有m個點
     return re;
 }
 
+bool inside(Point pd, int m){ //pd為查詢點, 凸包有m個點
+    int t,pt=INT_MAX;
+    while(m>=2)
+    {
+        int tmp = cross( pd ,CH[m-1], CH[m-2]);
+        if( tmp > 0){
+            t=1;
+        }
+        else if (tmp < 0 ){
+            t=-1;
+        }
 
-int main(int argc, char const *argv[])
-{
-    /* code */
-    return 0;
+        if ( t!=pt && pt!=INT_MAX)
+        {
+            return false;
+        }
+        pt = t;
+        m--;
+    }
+    return true;
 }
