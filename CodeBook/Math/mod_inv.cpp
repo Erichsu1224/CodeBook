@@ -49,7 +49,7 @@ LL pow(LL a, LL n, LL p)    // a^n % p
 // }
 // // section 2 for fema's theorem end
 
-//section 3 for tableing inverse
+//section 3 for tableing inverse start
 void mod_inv_table(){
     inv[1]=1;
     for (int i = 2; i < maxn; ++i)
@@ -57,7 +57,7 @@ void mod_inv_table(){
         inv[i] = (mod-mod/i)*inv[mod%i] %mod;
     }
 }
-//section 3 for tableing endb
+//section 3 for tableing end
 
 LL C(LL a, LL b)    //cac C(a, b)
 {
