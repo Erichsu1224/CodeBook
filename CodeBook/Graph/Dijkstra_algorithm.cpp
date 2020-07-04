@@ -1,17 +1,14 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 #define MP make_pair
 #define PII pair<int, int>
-#define maxn 50000+5
+#define maxn
 
-int dis[maxn]; // 預設都是 INF
-vector<PII > e[maxn]; // (連到的點， 邊的距離)
+int dis[maxn];
+vector<PII> e[maxn];
 
-void dijk(int cur) // dijk(起點)
+void dijk(int cur)
 { 
   int d;
-  priority_queue<PII,vector<PII>,greater<PII>> q; // 放 (距離, 點編號)，每次會拿距離最小的點出來
+  priority_queue<PII,vector<PII>,greater<PII>> q;
   q.push( MP(0, cur) );
     
   while (!q.empty()) 
@@ -19,7 +16,7 @@ void dijk(int cur) // dijk(起點)
     tie(d, cur) = q.top();
     q.pop();
     if (dis[cur] != 1e9) 
-        continue; // 如果之前就拜訪過，無視
+        continue;
 
     dis[cur] = d;
 
