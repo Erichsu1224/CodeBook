@@ -14,7 +14,7 @@ int vis[maxn];
 vector<PII> e[maxn]; // (連到的點， 邊的距離)
 int n, m;
 
-void spfa(int cur) 
+bool spfa(int cur) 
 {
 	queue<int> q;
 	dis[cur] = 0;
@@ -38,7 +38,7 @@ void spfa(int cur)
 		        	updateCount[i.first]++; 
 		        	if(updateCount[i.first] > n)
 		        	{
-		        		continue;
+		        		return false;
 		        	}
 		          	inq[i.first] = true;
 		          	q.push( i.first );
@@ -46,6 +46,8 @@ void spfa(int cur)
 	    	}
 	    }
 	}
+
+	return true;
 }
 
 void init(void)
@@ -71,15 +73,6 @@ bool dfs(int cur)
     return false;
 }
 
-bool check()
-{
-    memset(vis,false, sizeof(vis));
-    for(int i = 1; i <= n; i++)
-        if(updateCount[i]>n && dfs(i))
-            return true;
-    return false;
-}
-
 int main(void)
 {
 	int x, y, z;
@@ -93,12 +86,9 @@ int main(void)
 			e[x].push_back(MP(y, z));
 		}
 
-		spfa(1);
-
-		if(dis[n]!=INF && !check())
-			cout << dis[n] << '\n';
-		else
-			cout << "There a negative cycle or no path\n";
+		if(!spfa(1)){
+			cout << "There a negative cycle\n";
+		}
 	}
 	return 0;
 }
