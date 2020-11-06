@@ -31,17 +31,6 @@ struct Matrix  {
 		for (int i = 1 ; i < d ; ++i)	a[i][i-1] = 1 ;
 		// a[0][0]=1; a[0][1]=1;
 		// a[1][0]=1; a[1][1]=0;
-		// printf("------------**ini**------------------\n");
-		// for (int i = 0 ; i < d ; ++i)
-		// {
-		// 	for (int j = 0; j < d; ++j)
-		// 	{
-		// 		printf("%-4lld",a[i][j] );
-		// 	}
-		// 	printf("\n");
-		// }
-		// printf("------------**ini**------------------\n");
-
 	}
 };
 
@@ -57,18 +46,6 @@ Matrix operator*(const Matrix &a, const Matrix &b) // 矩陣乘法
 			}
 		}
 	}
-
-	// printf("------------****------------------\n");
-	// for (int i = 0 ; i < d ; ++i)
-	// {
-	// 	for (int j = 0; j < d; ++j)
-	// 	{
-	// 		printf("%-4lld",ret.a[i][j] );
-	// 	}
-	// 	printf("\n");
-	// }
-	// printf("------------****------------------\n");
-
 	return ret;
 }
 
@@ -108,17 +85,6 @@ LL query(LL n)
 	tmp.ini();
 	tmp=power(tmp, n-d);
 
-	// printf("------------------------------\n");
-	// for (int i = 0 ; i < d ; ++i)
-	// {
-	// 	for (int j = 0; j < d; ++j)
-	// 	{
-	// 		printf("%-4lld",tmp.a[i][j] );
-	// 	}
-	// 	printf("\n");
-	// }
-	// printf("------------------------------\n");
-
 	LL ret=0;
 	for (int i = 0; i < d; ++i)
 	{
@@ -133,7 +99,7 @@ int main()
 {
 	LL n;
 	while (scanf("%lld %lld %lld" , &d, &n, &mod)&&(d!=0 || n!=0 || mod !=0))  {
-
+		//d 是多深(3的話就3個相加) n代表求第n項
 		cout << query(n) << endl;
 	}
 	return 0;
